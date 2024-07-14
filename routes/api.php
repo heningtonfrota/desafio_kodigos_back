@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\{
     UserController,
-    ProductController
+    ProductController,
+    SupplierController
 };
 use Illuminate\Support\Facades\Route;
 
@@ -13,4 +14,5 @@ Route::post('/tokens/create', [UserController::class, 'getToken']);
 Route::apiResources([
     'users' => UserController::class,
     'products' => ProductController::class,
+    'suppliers' => SupplierController::class,
 ]);

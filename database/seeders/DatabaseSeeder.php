@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
+use App\Models\Supplier;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -19,5 +21,17 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        $products = Product::factory()->count(10)->create();
+        $suppliers = Supplier::factory()->count(5)->create();
+
+        foreach ($products as $product) {
+            foreach ($suppliers as $supplier) {
+                $product->suppliers()->attach($supplier->id, [
+                    'value' => rand(100, 1000),
+                    'is_winner' => false,
+                ]);
+            }
+        }
     }
 }

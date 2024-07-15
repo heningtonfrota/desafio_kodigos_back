@@ -61,7 +61,15 @@ Entre no container Docker da aplicação:
 docker compose exec app bash
 ```
 
-### 7. Gerar a chave da aplicação Laravel
+### 7. Baixar as dependncias da aplicação Laravel
+
+Dentro do container, execute o comando para baixar as dependencias do Laravel:
+
+```bash
+composer install
+```
+
+### 8. Gerar a chave da aplicação Laravel
 
 Dentro do container, execute o comando para gerar a chave do Laravel:
 
@@ -69,7 +77,7 @@ Dentro do container, execute o comando para gerar a chave do Laravel:
 php artisan key:generate
 ```
 
-### 8. Migrar e popular o banco de dados
+### 9. Migrar e popular o banco de dados
 
 Ainda dentro do container, execute o comando para criar as tabelas e popular o banco de dados:
 
@@ -77,6 +85,6 @@ Ainda dentro do container, execute o comando para criar as tabelas e popular o b
 php artisan migrate --seed
 ```
 
-### 9. Acessar a aplicação
+### 10. Acessar a aplicação
 
 Após subir os containers, a aplicação estará disponível em http://localhost:10000/api/version para conferir.
